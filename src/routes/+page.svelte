@@ -35,10 +35,12 @@
 
 <style>
 	.container {
-		min-width: 500px;
+		width: 100%;
+		max-width: 500px;
 		display: grid;
 		gap: 1rem;
 	}
+
 	p {
 		text-align: center;
 		font-weight: 600;
