@@ -1,7 +1,7 @@
 import type { Option, OptionType } from '$lib/types/options.type';
 import { writable } from 'svelte/store';
 
-const initialPassword = 'P4A$sW0rD';
+export const initialPassword = 'P4A$sW0rD';
 
 function createPassword() {
 	const { subscribe, set } = writable<string>(initialPassword);

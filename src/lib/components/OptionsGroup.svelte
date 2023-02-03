@@ -1,12 +1,17 @@
 <script lang="ts">
 	import Checbox from '$lib/components/Checbox.svelte';
-	import { OptionType, type Option } from '$lib/types/options.type';
 	import { options } from '$lib/stores/options';
+
+	const handleChange = () => {
+		options.update((options) => {
+			return options;
+		});
+	};
 </script>
 
 <div class="contaner">
 	{#each Object.values($options) as option}
-		<Checbox label={option.label} bind:checked={option.value} />
+		<Checbox label={option.label} bind:checked={option.value} on:change={handleChange} />
 	{/each}
 </div>
 

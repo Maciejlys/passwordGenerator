@@ -7,10 +7,10 @@
 	import OptionsGroup from '$lib/components/OptionsGroup.svelte';
 	import PasswordStrenght from '$lib/components/PasswordStrenght.svelte';
 	import { password } from '$lib/stores/password';
-	import { lenght, options } from '$lib/stores/options';
+	import { length, options } from '$lib/stores/options';
 
 	const handleClick = () => {
-		password.generatePassword($lenght, $options);
+		password.generatePassword($length, $options);
 	};
 </script>
 
@@ -41,5 +41,8 @@
 	}
 	p {
 		text-align: center;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		font-size: 1.2rem;
 	}
 </style>

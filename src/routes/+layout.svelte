@@ -5,6 +5,7 @@
 <style>
 	:root {
 		--green: rgb(164, 254, 173);
+		--grey: #e5e4e8;
 		--dark-grey: #18171f;
 		--light-grey: #24232b;
 	}

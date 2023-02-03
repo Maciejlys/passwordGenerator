@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { initialPassword } from '$lib/stores/password';
+
 	function typewriter(node: any, { speed = 1 }) {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
 
@@ -21,14 +23,20 @@
 	export let text: string;
 </script>
 
-<p in:typewriter={{ speed: 1.5 }}>
-	{text}
-</p>
+{#key text}
+	<p in:typewriter={{ speed: 1.5 }} class:placeholder={text === initialPassword}>
+		{text}
+	</p>
+{/key}
 
 <style>
 	p {
 		margin: 0;
 		font-size: 1.5rem;
 		font-weight: 700;
+	}
+
+	.placeholder {
+		color: grey;
 	}
 </style>

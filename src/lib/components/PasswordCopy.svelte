@@ -3,7 +3,6 @@
 	import src from '$lib/assets/copyIcon.png';
 	import { toast } from '../stores/toast';
 	import { password } from '../stores/password';
-	import { fly, slide } from 'svelte/transition';
 	import Typewriter from './Typewriter.svelte';
 
 	let copyButton: HTMLButtonElement;
@@ -11,17 +10,18 @@
 	onMount(() => {
 		copyButton.addEventListener('click', () => {
 			navigator.clipboard.writeText($password);
-			toast.dispatchToast('Password copied to clipboard');
+			toast.dispatchToast({
+				message: 'Password copied to clipboard!',
+				type: 'success'
+			});
 		});
 	});
 </script>
 
 <div class="container">
-	{#key $password}
-		<Typewriter text={$password} />
-	{/key}
+	<Typewriter text={$password} />
 	<button bind:this={copyButton}>
-		<img {src} alt="" />
+		<img {src} alt="copy password" />
 	</button>
 </div>
 

@@ -22,7 +22,11 @@
 
 {#if showToast}
 	<button class="wrapper" transition:fly={{ y: -20 }} on:click|once={handleClick}>
-		<div class="toast">
+		<div
+			class="toast"
+			class:success={$toast?.type === 'success'}
+			class:error={$toast?.type === 'error'}
+		>
 			{$toast?.message}
 		</div>
 	</button>
@@ -45,11 +49,18 @@
 	}
 
 	.toast {
-		background-color: var(--green);
-		color: black;
-		padding: 0.5rem 1rem;
-		border-radius: 4px;
+		background-color: var(--light-grey);
+		padding: 1rem 1.5rem;
+		border-radius: 16px;
 		font-size: 1.2rem;
 		font-weight: 700;
+	}
+
+	.error {
+		color: red;
+	}
+
+	.success {
+		color: var(--green);
 	}
 </style>
