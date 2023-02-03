@@ -4,6 +4,7 @@
 	import { toast } from '../stores/toast';
 	import { password } from '../stores/password';
 	import { fly, slide } from 'svelte/transition';
+	import Typewriter from './Typewriter.svelte';
 
 	let copyButton: HTMLButtonElement;
 
@@ -17,7 +18,7 @@
 
 <div class="container">
 	{#key $password}
-		<div class="password" in:fly out:slide>{$password}</div>
+		<Typewriter text={$password} />
 	{/key}
 	<button bind:this={copyButton}>
 		<img {src} alt="" />
@@ -29,11 +30,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	}
-
-	.password {
-		font-size: 1.5rem;
-		font-weight: 700;
 	}
 
 	button {
